@@ -33,12 +33,14 @@
 
 <svelte:head><title>Home</title></svelte:head>
 
-<div class="relative">
-	<img class="w-full rounded-lg" src={'/img' + tab + '.jpg'} alt={'image'} />
-	<button on:click={leftArrow} class="absolute inset-y-0 left-0" type="button">
-		<ChevronLeftIcon class="h-6 w-6 text-white bg-black rounded-full" />
-	</button>
-	<button on:click={rightArrow} class="absolute inset-y-0 right-0" type="button">
-		<ChevronRightIcon class="h-6 w-6 text-white bg-black rounded-full" />
-	</button>
+<div>
+	<div class=" md:relative ">
+		<img class="w-full rounded-lg" src={'/img' + tab + '.jpg'} alt={'image'} />
+		<button on:click={leftArrow} class="md:absolute inset-y-0 left-0" type="button">
+			<ChevronLeftIcon class="h-6 w-6 text-white bg-black rounded-full" />
+		</button>
+		<button on:click={rightArrow} class="md:absolute inset-y-0 right-0" type="button">
+			<ChevronRightIcon class="h-6 w-6 text-white bg-black rounded-full" />
+		</button>
+	</div>
 </div>

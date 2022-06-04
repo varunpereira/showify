@@ -25,8 +25,8 @@
 <svelte:window bind:innerWidth={width} />
 
 <header class="relative min-w-min  py-3  md:flex md:items-center md:justify-between">
-	<div class="md:mr-5 mb-1 px-0 flex items-center justify-between ">
-		<a href="/" class="flex  text-orange-600 rounded-md pt-1">
+	<div class="md:mr-5 mb-1 flex items-center justify-between ">
+		<a href="/" class="flex text-orange-600 rounded-md pt-1">
 			<TvIcon class="w-6 h-6 mr-1 pt-1" />
 			<p class="justify-end text-lg font-bold">Showify</p>
 		</a>
@@ -35,7 +35,7 @@
 				menuStatus = !menuStatus;
 			}}
 		>
-			<MenuIcon class="mb-1 h-7 w-7 hover:text-gray-400 md:hidden" />
+			<MenuIcon class="mb-1 h-7 w-7 md:hidden" />
 		</button>
 	</div>
 

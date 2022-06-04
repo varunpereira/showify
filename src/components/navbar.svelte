@@ -1,5 +1,11 @@
 <script>
-	import { ShoppingBagIcon, ShoppingCartIcon, MenuIcon, UserIcon } from 'svelte-feather-icons';
+	import {
+		ShoppingBagIcon,
+		ShoppingCartIcon,
+		MenuIcon,
+		UserIcon,
+		TvIcon
+	} from 'svelte-feather-icons';
 	import { auth } from '@src/utils/store';
 	import cookie from 'js-cookie';
 	import { goto } from '$app/navigation';
@@ -18,14 +24,12 @@
 
 <svelte:window bind:innerWidth={width} />
 
-<header class="relative mb-10 min-w-min bg-black py-4  md:flex md:items-center md:justify-between">
+<header class="relative mb-10 min-w-min  py-3  md:flex md:items-center md:justify-between">
 	<div class="md:mr-5 mb-1 px-0 flex items-center justify-between ">
-		<h1 class="text-xl">
-			<a href="/" class="flex font-bold no-underline hover:text-gray-400">
-				<ShoppingBagIcon class="w-6 h-6 mr-1 pt-1" />
-				<span class="justify-end pb-1">Denify</span>
-			</a>
-		</h1>
+		<a href="/" class="flex  text-orange-600 rounded-md pt-1">
+			<TvIcon class="w-6 h-6 mr-1 pt-1" />
+			<p class="justify-end text-lg font-bold">Showify</p>
+		</a>
 		<button
 			on:click={() => {
 				menuStatus = !menuStatus;
@@ -37,7 +41,7 @@
 
 	{#if menuStatus === true || width >= 768}
 		<ul
-			class="absolute bg-black w-full md:static list-reset md:flex md:items-center md:justify-end"
+			class="absolute bg-gray-900 w-full md:static list-reset md:flex md:items-center md:justify-end"
 		>
 			<SearchBar />
 

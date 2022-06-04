@@ -9,13 +9,13 @@
 	}
 </script>
 
-<div class="mr-5 max-h-min w-full min-w-min pb-2 shadow-md md:flex text-black">
+<div class="mr-5 max-h-min w-full min-w-min pb-1 pt-1 md:pt-0 shadow-md md:flex text-black">
 	<form class=" relative w-full " on:submit|preventDefault={searchResults}>
 		<input
 			value={searchTerm}
 			on:input={(event) => (searchTerm = event.target.value)}
 			type="text"
-			placeholder="search"
+			placeholder="search for movies, tv, celebs and more..."
 			class="focus:shadow-outline w-full min-w-max bg-white py-2  pl-3 text-sm leading-tight text-black focus:outline-none rounded-md"
 		/>
 		{#if searchTerm !== ''}

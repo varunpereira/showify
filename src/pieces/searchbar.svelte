@@ -10,7 +10,6 @@
 	$: if (searchTerm !== params.get('searchTerm')) {
 		goto('/searchResults?searchTerm=' + searchTerm);
 	}
-
 </script>
 
 <div class="mr-5 max-h-min w-full min-w-min pb-1 pt-1 md:pt-0 shadow-md md:flex text-black">

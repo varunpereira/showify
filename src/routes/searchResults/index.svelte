@@ -1,6 +1,5 @@
 <script>
 	import axios from 'axios';
-	import Product from '@src/pieces/product.svelte';
 	import { auth } from '@src/utils/store';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';

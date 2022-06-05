@@ -19,7 +19,7 @@ var schema = new mongoose.Schema(
 			type: String
 		},
 		length: {
-			type: String
+			type: Number
 		},
 		cast: {
 			type: Array,

@@ -4,13 +4,17 @@
 
 	var searchTerm = '';
 
-	function searchResults() {
+	const params = new URLSearchParams(window.location.search)
+	console.log(params.get('searchTerm'))
+
+	$: if (searchTerm !== params.get('searchTerm')) {
 		goto('/searchResults?searchTerm=' + searchTerm);
 	}
+
 </script>
 
 <div class="mr-5 max-h-min w-full min-w-min pb-1 pt-1 md:pt-0 shadow-md md:flex text-black">
-	<form class=" relative w-full " on:submit|preventDefault={searchResults}>
+	<form class=" relative w-full ">
 		<input
 			value={searchTerm}
 			on:input={(event) => (searchTerm = event.target.value)}
@@ -28,11 +32,11 @@
 			</button>
 		{/if}
 
-		<button
+		<!-- <button
 			type="submit"
 			class="absolute inset-y-0 right-0 w-10 max-w-min  cursor-pointer items-center justify-center bg-white pr-3 rounded-r-md"
 		>
 			<SearchIcon class="h-4 w-4 text-black" />
-		</button>
+		</button> -->
 	</form>
 </div>

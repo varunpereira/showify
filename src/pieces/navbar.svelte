@@ -40,17 +40,14 @@
 	</div>
 
 	{#if menuStatus === true || width >= 768}
-		<ul
+		<div
 			class="absolute bg-gray-900 w-full md:static list-reset md:flex md:items-center md:justify-end"
 		>
-
 			<SearchBar />
 
-			<li class="nav-item pb-1 rounded-b">
-				<a href="#" class="hover:text-gray-400">
-					<span class="pr-1">Sign</span>in
-				</a>
-			</li>
-		</ul>
+			<a href="" class="nav-item pb-1 rounded-b pt-2 hover:text-gray-400">
+				<span>Sign</span>in
+			</a>
+		</div>
 	{/if}
 </header>

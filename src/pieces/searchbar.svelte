@@ -8,7 +8,7 @@
 	var searchResults = [];
 
 	$: {
-		searchResults = ['Loading...']
+		searchResults = [];
 		axios
 			.post('/searchResults', {
 				searchTerm: searchTerm.trim()
@@ -23,7 +23,7 @@
 </script>
 
 <div class="mr-5 max-h-min w-full min-w-min pb-1 md:pb-0 pt-1 md:pt-0 shadow-md md:flex grid">
-	<form class="relative w-full">
+	<div class="relative w-full">
 		<input
 			bind:value={searchTerm}
 			on:input={function (event) {
@@ -52,11 +52,9 @@
 						{#each searchResults as searchResult}
 							{searchResult.title}
 						{/each}
-					{:else}
-						<p>Loading..</p>
 					{/if}
 				</a>
 			</div>
 		{/if}
-	</form>
+	</div>
 </div>

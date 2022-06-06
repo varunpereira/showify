@@ -5,6 +5,7 @@
 	import { goto } from '$app/navigation';
 	import { ChevronLeftIcon, ChevronRightIcon } from 'svelte-feather-icons';
 
+
 	var tab = 1;
 	var imagesLength = 4;
 

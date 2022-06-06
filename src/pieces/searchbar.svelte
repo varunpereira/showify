@@ -1,11 +1,25 @@
 <script>
 	import { goto } from '$app/navigation';
 	import { XIcon } from 'svelte-feather-icons';
+	import axios from 'axios';
 
 	var searchTerm = '';
+	var error = null;
+	var searchResults = '';
+
 	$: {
 		// post req here and use searchterm.trim()
-		console.log(searchTerm);
+		console.log(searchTerm.trim());
+		axios
+			.post('/searchResults', {
+				searchTerm: searchTerm.trim()
+			})
+			.then(function (res) {
+				if (res.data.error) {
+					error = res.data.error;
+				}
+				searchResults = res.data.searchResults;
+			});
 	}
 </script>
 
@@ -20,7 +34,7 @@
 			placeholder="search for movies, tv, celebs and more..."
 			class="focus:shadow-outline w-full min-w-max bg-white py-2  pl-3 text-sm leading-tight text-black focus:outline-none rounded-md"
 		/>
-		{#if searchTerm !== ''}
+		{#if searchTerm.trim() !== ''}
 			<button
 				on:click={function () {
 					searchTerm = '';
@@ -30,10 +44,17 @@
 			>
 				<XIcon class="h-4 w-4 text-black" />
 			</button>
-			<div class="absolute pl-3 w-full bg-black text-white rounded-b-md">
-				<a href={'/harrypotter'} class="block py-2 rounded hover:text-gray-400"
-					>harry potter</a
-				>
+			<div class="absolute px-2 w-full bg-black text-white rounded-b-md">
+				<a href={'/harrypotter'} class="block py-2 rounded hover:text-gray-400">
+					<!-- {JSON.stringify(searchResults)} -->
+					{#if searchResults.length === 0}
+						<h2>No results found.</h2>
+					{:else}
+						{#each searchResults as searchResult}
+						{searchResult.title}
+						{/each}
+					{/if}
+				</a>
 			</div>
 		{/if}
 	</form>

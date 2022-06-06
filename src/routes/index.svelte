@@ -34,7 +34,8 @@
 <svelte:head><title>Home</title></svelte:head>
 
 <div>
-	<div class=" md:relative ">
+	<!-- class is relative -->
+	<div class="">
 		<img class="w-full rounded-lg" src={'/img' + tab + '.jpg'} alt={'image'} />
 		<button on:click={leftArrow} class="md:absolute inset-y-0 left-0" type="button">
 			<ChevronLeftIcon class="h-6 w-6 text-white bg-black rounded-full" />

@@ -5,7 +5,6 @@
 	import { goto } from '$app/navigation';
 	import { ChevronLeftIcon, ChevronRightIcon } from 'svelte-feather-icons';
 
-
 	var tab = 1;
 	var imagesLength = 4;
 
@@ -35,14 +34,15 @@
 <svelte:head><title>Home</title></svelte:head>
 
 <div>
-	<!-- class is relative -->
 	<div class="">
 		<img class="w-full rounded-lg" src={'/img' + tab + '.jpg'} alt={'image'} />
-		<button on:click={leftArrow} class="md:absolute inset-y-0 left-0" type="button">
-			<ChevronLeftIcon class="h-6 w-6 text-white bg-black rounded-full" />
-		</button>
-		<button on:click={rightArrow} class="md:absolute inset-y-0 right-0" type="button">
-			<ChevronRightIcon class="h-6 w-6 text-white bg-black rounded-full" />
-		</button>
+		<div class="flex justify-center">
+			<button on:click={leftArrow} class="inset-y-0 left-0" type="button">
+				<ChevronLeftIcon class="h-6 w-6 text-white bg-black rounded-full" />
+			</button>
+			<button on:click={rightArrow} class="nset-y-0 right-0" type="button">
+				<ChevronRightIcon class="h-6 w-6 text-white bg-black rounded-full" />
+			</button>
+		</div>
 	</div>
 </div>

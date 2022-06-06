@@ -5,11 +5,10 @@
 
 	var searchTerm = '';
 	var error = null;
-	var searchResults = '';
+	var searchResults = [];
 
 	$: {
-		// post req here and use searchterm.trim()
-		console.log(searchTerm.trim());
+		// searchResults = ['Loading...']
 		axios
 			.post('/searchResults', {
 				searchTerm: searchTerm.trim()
@@ -48,11 +47,13 @@
 				<a href={'/harrypotter'} class="block py-2 rounded hover:text-gray-400">
 					<!-- {JSON.stringify(searchResults)} -->
 					{#if searchResults.length === 0}
-						<h2>No results found.</h2>
+						<p>No results found.</p>
+					{:else if searchResults.length > 0}
+					{#each searchResults as searchResult}
+					{searchResult.title}
+					{/each}
 					{:else}
-						{#each searchResults as searchResult}
-						{searchResult.title}
-						{/each}
+					<p>Loading..</p>
 					{/if}
 				</a>
 			</div>

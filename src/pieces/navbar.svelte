@@ -24,8 +24,8 @@
 
 <svelte:window bind:innerWidth={width} />
 
-<header class="relative min-w-min  py-3  md:flex md:items-center md:justify-between">
-	<div class="md:mr-5 mb-1 flex items-center justify-between ">
+<div class="relative md:flex md:items-center md:justify-between py-3 ">
+	<div class="flex items-center justify-between md:mr-5 mb-1 ">
 		<a href="/" class="flex text-orange-600 rounded-md pt-1">
 			<TvIcon class="w-6 h-6 mr-1 pt-1" />
 			<p class="justify-end text-lg font-bold">Showify</p>
@@ -40,14 +40,10 @@
 	</div>
 
 	{#if menuStatus === true || width >= 768}
-		<div
-			class="absolute bg-gray-900 w-full md:static list-reset md:flex md:items-center md:justify-end"
-		>
+		<div class="absolute md:static md:flex md:items-center md:justify-end bg-gray-900 w-full">
 			<SearchBar />
 
-			<a href="" class="nav-item pb-1 rounded-b pt-2 hover:text-gray-400">
-				<span>Sign</span>in
-			</a>
+			<a href="" class="pb-1 pt-2 hover:text-gray-400 flex-none"> Sign In </a>
 		</div>
 	{/if}
-</header>
+</div>

@@ -8,7 +8,7 @@
 	var searchResults = [];
 
 	$: {
-		searchResults = [];
+		searchResults = 'loading';
 		axios
 			.post('/searchResults', {
 				searchTerm: searchTerm.trim()
@@ -46,7 +46,9 @@
 			<div class="absolute px-2 w-full bg-black text-white rounded-b-md">
 				<a href={'/harrypotter'} class="block py-2 rounded hover:text-gray-400">
 					<!-- {JSON.stringify(searchResults)} -->
-					{#if searchResults.length === 0}
+					{#if searchResults === 'loading'}
+						<p>Loading...</p>
+					{:else if searchResults.length === 0}
 						<p>No results found.</p>
 					{:else if searchResults.length > 0}
 						{#each searchResults as searchResult}

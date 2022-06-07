@@ -44,7 +44,6 @@
 				<XIcon class="h-4 w-4 text-black" />
 			</button>
 			<div class="absolute px-2 w-full bg-black text-white rounded-b-md">
-				<div class="block py-2 rounded hover:text-gray-400">
 					<!-- {JSON.stringify(searchResults)} -->
 					{#if searchResults === 'loading'}
 						<p>Loading...</p>
@@ -57,11 +56,11 @@
 								on:click={function () {
 									searchTerm = '';
 								}}
+								class="hover:text-gray-400"
 								>{searchResult.title}
 							</a>
 						{/each}
 					{/if}
-				</div>
 			</div>
 		{/if}
 	</div>

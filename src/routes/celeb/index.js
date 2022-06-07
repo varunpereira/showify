@@ -5,13 +5,13 @@ import celebModel from '@src/models/celebModel';
 db();
 
 export async function post({ request }) {
-	var { showId } = await request.json();
-	var show = await showModel.findOne({ _id: showId });
-	var celebs = await celebModel.find({ showIds: showId });
+	var { celebId } = await request.json();
+	var celeb = await celebModel.findOne({ _id: celebId });
+	var shows = await showModel.find({ celebIds: celebId });
 	return {
 		body: {
-			show,
-			celebs
+			celeb,
+			shows
 		}
 	};
 }

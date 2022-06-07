@@ -5,14 +5,14 @@ var schema = new mongoose.Schema(
 		title: {
 			type: String
 		},
-		description: {
+		desc: {
 			type: String
 		},
 		pics: {
 			type: Array,
 			default: []
 		},
-		shows: {
+		showIds: {
 			type: Array,
 			default: []
 		}

@@ -7,21 +7,21 @@
 	import { onMount } from 'svelte';
 	import cookie from 'js-cookie';
 
-	var show = null;
-	var celebs = null;
+	var celeb = null;
+	var shows = null;
 	var tab = 0;
 	var error = null;
-	var showId = $page.url.searchParams.get('showId');
+	var celebId = $page.url.searchParams.get('celebId');
 
 	onMount(async function () {
 		var res = await axios.post($page.url.pathname, {
-			showId
+			celebId
 		});
 		if (res.data.error) {
 			error = res.data.error;
 		}
-		show = res.data.show;
-		celebs = res.data.celebs;
+		celeb = res.data.celeb;
+		shows = res.data.shows;
 	});
 
 	function leftArrow() {
@@ -43,22 +43,13 @@
 
 <svelte:head><title>Show Details - Showify</title></svelte:head>
 
-{#if show}
-	<p class="text-3xl">{show.title}</p>
-	<div class="flex justify-between">
-		<p class="">{show.relDate + ' ' + show.cert + ' ' + show.length + ' mins'}</p>
-		<p class="">{show.rating} Stars</p>
-	</div>
+{#if celeb}
+	<p class="text-3xl">{celeb.title}</p>
+	<p class="">{celeb.desc}</p>
+	<p class="text-3xl">Shows</p>
 	<div class="flex">
-		{#each show.cat as cat}
-			<p class="mr-10">{cat}</p>
-		{/each}
-	</div>
-	<p class="">{show.desc}</p>
-	<p class="text-3xl">Cast</p>
-	<div class="flex">
-		{#each celebs as celeb}
-			<a href={'/celeb?celebId=' + celeb._id} class="mr-10 hover:text-gray-400">{celeb.title}</a>
+		{#each shows as show}
+			<a href={'/show?showId=' + show._id} class="mr-10 hover:text-gray-400">{show.title}</a>
 		{/each}
 	</div>
 {:else}

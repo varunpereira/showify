@@ -31,7 +31,7 @@
 	}
 </script>
 
-<svelte:head><title>Home</title></svelte:head>
+<svelte:head><title>Home - Showify</title></svelte:head>
 
 <div>
 	<div class="">

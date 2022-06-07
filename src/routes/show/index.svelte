@@ -40,7 +40,7 @@
 	}
 </script>
 
-<svelte:head><title>Show Details</title></svelte:head>
+<svelte:head><title>Show Details - Showify</title></svelte:head>
 
 {#if show}
 	<p class="text-3xl">{show.title}</p>

@@ -22,7 +22,7 @@
 	}
 </script>
 
-<div class="mr-5 max-h-min w-full min-w-min pb-1 md:pb-0 pt-1 md:pt-0 shadow-md md:flex grid">
+<div class="md:flex mr-5 pb-1 md:pb-0 pt-1 md:pt-0 w-full">
 	<div class="relative w-full">
 		<input
 			bind:value={searchTerm}
@@ -31,14 +31,14 @@
 			}}
 			type="text"
 			placeholder="search for movies, tv, celebs and more..."
-			class="focus:shadow-outline w-full min-w-max bg-white py-2  pl-3 text-sm leading-tight text-black focus:outline-none rounded-md"
+			class="w-full py-2 pl-3 bg-white rounded-md focus:outline-none text-sm text-black"
 		/>
 		{#if searchTerm.trim() !== ''}
 			<button
 				on:click={function () {
 					searchTerm = '';
 				}}
-				class="absolute inset-y-0 right-2 w-10  max-w-min items-center justify-center"
+				class="absolute inset-y-0 right-2"
 				type="button"
 			>
 				<XIcon class="h-4 w-4 text-black" />
@@ -52,7 +52,7 @@
 						<p>No results found.</p>
 					{:else if searchResults.length > 0}
 						{#each searchResults as searchResult}
-							{searchResult.title}
+						<a href={'/show?showId='+searchResult._id}>{searchResult.title} </a>
 						{/each}
 					{/if}
 				</a>

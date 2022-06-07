@@ -5,7 +5,7 @@ var schema = new mongoose.Schema(
 		title: {
 			type: String
 		},
-		description: {
+		desc: {
 			type: String
 		},
 		pics: {
@@ -15,17 +15,20 @@ var schema = new mongoose.Schema(
 		rating: {
 			type: Number
 		},
+		relDate: {
+			type: Number
+		},
 		cert: {
 			type: String
 		},
 		length: {
 			type: Number
 		},
-		cast: {
+		celebIds: {
 			type: Array,
 			default: []
 		},
-		categories: {
+		cat: {
 			type: Array,
 			default: []
 		}

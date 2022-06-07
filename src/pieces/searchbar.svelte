@@ -52,7 +52,13 @@
 						<p>No results found.</p>
 					{:else if searchResults.length > 0}
 						{#each searchResults as searchResult}
-						<a href={'/show?showId='+searchResult._id}>{searchResult.title} </a>
+							<a
+								href={'/show?showId=' + searchResult._id}
+								on:click={function () {
+									searchTerm = '';
+								}}
+								>{searchResult.title}
+							</a>
 						{/each}
 					{/if}
 				</a>

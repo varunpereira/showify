@@ -41,7 +41,7 @@
 	}
 </script>
 
-<svelte:head><title>Show Details - Showify</title></svelte:head>
+<svelte:head><title>{show && show.title} - Showify</title></svelte:head>
 
 {#if show}
 	<p class="text-3xl">{show.title}</p>

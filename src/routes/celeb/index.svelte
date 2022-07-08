@@ -46,10 +46,21 @@
 {#if celeb}
 	<p class="text-3xl">{celeb.title}</p>
 	<p class="">{celeb.desc}</p>
+	<img alt={celeb.title} src={celeb.pics[0]} class="object-cover h-96 mr-2 rounded-sm"/>
+
 	<p class="text-3xl">Shows</p>
 	<div class="flex">
 		{#each shows as show}
-			<a href={'/show?showId=' + show._id} class="mr-10 hover:text-gray-400">{show.title}</a>
+			<a href={'/show?showId=' + show._id} class="mr-10 hover:text-gray-400">
+				<div class="items-start justify-start  md:flex ">
+					<img
+						alt={show.title}
+						src={show.pics[0]}
+						class="object-cover h-20 mr-2 rounded-sm"
+					/>
+					<p>{show.title}</p>
+				</div>
+			</a>
 		{/each}
 	</div>
 {:else}

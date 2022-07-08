@@ -54,11 +54,21 @@
 			<p class="mr-10">{cat}</p>
 		{/each}
 	</div>
+	<img alt={show.title} src={show.pics[0]} class="object-cover h-96 mr-2 rounded-sm" />
 	<p class="">{show.desc}</p>
 	<p class="text-3xl">Cast</p>
 	<div class="flex">
 		{#each celebs as celeb}
-			<a href={'/celeb?celebId=' + celeb._id} class="mr-10 hover:text-gray-400">{celeb.title}</a>
+			<a href={'/celeb?celebId=' + celeb._id} class="mr-10 hover:text-gray-400"
+				><div class="items-start justify-start  md:flex ">
+					<img
+						alt={celeb.title}
+						src={celeb.pics[0]}
+						class="object-cover h-20 mr-2 rounded-sm"
+					/>
+					<p>{celeb.title}</p>
+				</div>
+			</a>
 		{/each}
 	</div>
 {:else}

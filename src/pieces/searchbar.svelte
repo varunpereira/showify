@@ -43,7 +43,7 @@
 			>
 				<XIcon class="h-4 w-4 text-black" />
 			</button>
-			<div class="absolute px-2 w-full bg-black text-white rounded-b-md">
+			<div class="absolute  w-full bg-gray-900 text-white rounded-b-md">
 				<!-- {JSON.stringify(searchResults)} -->
 				{#if searchResults === 'loading'}
 					<p>Loading...</p>
@@ -58,8 +58,16 @@
 							on:click={function () {
 								searchTerm = '';
 							}}
-							class="block hover:text-gray-400"
-							>{searchResult.title}
+							class="block hover:bg-gray-800 py-2 px-2"
+						>
+							<div class="items-start justify-start  md:flex ">
+								<img
+									alt={searchResult.title}
+									src={searchResult.pics[0]}
+									class="object-cover h-20 mr-2 rounded-sm"
+								/>
+								<p>{searchResult.title}</p>
+							</div>
 						</a>
 					{/each}
 				{/if}
